@@ -1,4 +1,9 @@
 const fetch = require('node-fetch')
+const redis = require('redis'),
+  client = redis.createClient()
+const { promisify } = require('util')
+// const getAsync = promisify(client.get).bind(client)
+const setAsync = promisify(client.set).bind(client)
 
 const BASE_URL = 'https://jobs.github.com/positions.json'
 
@@ -19,6 +24,8 @@ async function fetchGithub() {
   }
 
   console.log('got', allJobs.length, 'total')
+
+  const 
 }
 
 fetchGithub()
