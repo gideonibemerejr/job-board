@@ -25,7 +25,6 @@ async function fetchGithub() {
   console.log('got', allJobs.length, 'total')
 
   // filter algorithm
-
   const jrJobs = allJobs.filter(job => {
     const jobTitle = job.title.toLowerCase()
 
@@ -35,6 +34,7 @@ async function fetchGithub() {
       jobTitle.includes('manager') ||
       jobTitle.includes('sr.') ||
       jobTitle.includes('architect') ||
+      jobTitle.includes('mid-') ||
       jobTitle.includes('lead')
     ) {
       return false

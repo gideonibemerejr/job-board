@@ -10,8 +10,8 @@ const getAsync = promisify(client.get).bind(client)
 app.get('/jobs', async (req, res) => {
   const jobs = await getAsync('github')
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
-  console.log(JSON.parse(jobs).length)
-  return res.send(jobs)
+  console.log('jobs requested')
+  return res.send(JSON.parse(jobs))
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
