@@ -22,7 +22,7 @@
 }
 
 .job {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   /* flex-direction: column; */
@@ -33,14 +33,24 @@
   margin: 1rem;
 }
 
-.job-text {
-  display: flex;
-  flex-direction: column;
+.job:hover {
+  cursor: pointer;
+  color: #666666;
 }
 
 .jobs {
   margin: 3rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepper {
+  width: 30%;
+}
+
+.detail-logo {
+  width: 10vmin;
+  float: right;
 }
