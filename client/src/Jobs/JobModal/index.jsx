@@ -30,7 +30,7 @@ export default function JobModal({ job, open, handleClose }) {
           <img
             className="detail-logo"
             src={job.company_logo}
-            alt={`${job.title} Logo`}
+            alt={`${job.company} Logo`}
           />
           {job.title} <br /> {job.company}
         </DialogTitle>

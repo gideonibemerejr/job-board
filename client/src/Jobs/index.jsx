@@ -44,49 +44,61 @@ const Jobs = ({ jobs }) => {
         </Typography>
         <Typography>Found {numJobs} Jobs</Typography>
         {jobsOnPage.length ? (
-          jobsOnPage.map((job, idx) => (
-            <Job
-              key={idx}
-              job={job}
-              onClick={() => {
-                handleClickOpen();
-                selectJob(job);
-              }}
+          <>
+            {jobsOnPage.map((job, idx) => (
+              <Job
+                key={idx}
+                job={job}
+                onClick={() => {
+                  handleClickOpen();
+                  selectJob(job);
+                }}
+              />
+            ))}
+            <div>
+              Page {activeStep + 1} of {numPages}
+            </div>
+            <MobileStepper
+              className="stepper"
+              variant="progress"
+              steps={numPages}
+              position="static"
+              activeStep={activeStep}
+              nextButton={
+                <Button
+                  size="small"
+                  onClick={handleNext}
+                  disabled={activeStep === numPages - 1}
+                >
+                  Next
+                  <KeyboardArrowRight />
+                </Button>
+              }
+              backButton={
+                <Button
+                  size="small"
+                  onClick={handleBack}
+                  disabled={activeStep === 0}
+                >
+                  <KeyboardArrowLeft />
+                  Back
+                </Button>
+              }
             />
-          ))
+          </>
         ) : (
-          <div class="empty"> not shit nigga </div>
+          <div class="empty">
+            <div className="empty-text">
+              <Typography variant="h3" component="h1">
+                Uh oh.
+              </Typography>
+              <Typography variant="h5" component="h2">
+                There aren't any jobs available. <br />
+                Check back soon or try refreshing the page.
+              </Typography>
+            </div>
+          </div>
         )}
-        <div>
-          Page {activeStep + 1} of {numPages}
-        </div>
-        <MobileStepper
-          className="stepper"
-          variant="progress"
-          steps={numPages}
-          position="static"
-          activeStep={activeStep}
-          nextButton={
-            <Button
-              size="small"
-              onClick={handleNext}
-              disabled={activeStep === numPages - 1}
-            >
-              Next
-              <KeyboardArrowRight />
-            </Button>
-          }
-          backButton={
-            <Button
-              size="small"
-              onClick={handleBack}
-              disabled={activeStep === 0}
-            >
-              <KeyboardArrowLeft />
-              Back
-            </Button>
-          }
-        />
       </div>
     </>
   );
