@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react";
+import { Typography, Paper } from "@material-ui/core";
 
 const Job = ({ job }) => {
   return (
-    <div className='job'>
-      <figure>
-        <img src={job.company_logo} alt='' />
-      </figure>
-      <div className='job-text'>
-        <h3>{job.title}</h3>
-        <h4>{job.company}</h4>
-
-        <h5>{job.type}</h5>
+    <Paper className="job">
+      <div>
+        <Typography>{job.title}</Typography>
+        <Typography>{job.company}</Typography>
+        <Typography>{job.location}</Typography>
       </div>
-    </div>
-  )
-}
+      <div>
+        <Typography>{job.created_at}</Typography>
+      </div>
+    </Paper>
+  );
+};
 
-export default Job
+export default Job;
