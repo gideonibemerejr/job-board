@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  margin: 2rem;
 }
 
 .App-logo {
@@ -23,18 +22,15 @@
 }
 
 .job {
-  width: 25%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   text-align: left;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem;
   margin: 1rem;
-}
-
-.job:nth-child(2) {
-  justify-content: flex-end;
 }
 
 .job-text {
