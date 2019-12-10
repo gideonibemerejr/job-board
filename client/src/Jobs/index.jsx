@@ -43,16 +43,20 @@ const Jobs = ({ jobs }) => {
           Entry Level Software Jobs
         </Typography>
         <Typography>Found {numJobs} Jobs</Typography>
-        {jobsOnPage.map((job, idx) => (
-          <Job
-            key={idx}
-            job={job}
-            onClick={() => {
-              handleClickOpen();
-              selectJob(job);
-            }}
-          />
-        ))}
+        {jobsOnPage.length ? (
+          jobsOnPage.map((job, idx) => (
+            <Job
+              key={idx}
+              job={job}
+              onClick={() => {
+                handleClickOpen();
+                selectJob(job);
+              }}
+            />
+          ))
+        ) : (
+          <div class="empty"> not shit nigga </div>
+        )}
         <div>
           Page {activeStep + 1} of {numPages}
         </div>
